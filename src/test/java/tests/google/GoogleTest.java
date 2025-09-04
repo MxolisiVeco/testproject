@@ -8,23 +8,27 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.Test;
+import tests.BaseTest;
 
 /**
  *
  * @author Veco Mxolisi
  */
-public class GoogleTest {
+public class GoogleTest extends BaseTest {
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
     @Test
     public void hello() {
+        
+        
         WebDriver driver = null;
 
         try {
-            driver = new EdgeDriver();
+            driver = new ChromeDriver(chromeOptions);
             driver.get("https://www.google.com/");
             driver.manage().window().maximize();
             WebElement searchBox = driver.findElement(By.name("q"));
