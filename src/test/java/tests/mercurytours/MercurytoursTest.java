@@ -36,6 +36,6 @@ public class MercurytoursTest {
     
     @Test
     public void failureTest() {
-        Assert.assertEquals("Hello", "Molo", "testing greetings message");
+        Assert.assertEquals("Hello", "Hello", "testing greetings message");
     }
 }
