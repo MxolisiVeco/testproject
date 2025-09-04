@@ -1,0 +1,35 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/EmptyTestNGTest.java to edit this template
+ */
+package tests.mercurytours;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
+
+/**
+ *
+ * @author Veco Mxolisi
+ */
+public class MercurytoursTest {
+
+    // TODO add test methods here.
+    // The methods must be annotated with annotation @Test. For example:
+    @Test
+    public void hello() {
+
+        WebDriver driver = null;
+
+        try {
+            driver = new ChromeDriver();
+            driver.get("https://demo.guru99.com/");
+            driver.manage().window().maximize();
+            driver.findElement(By.name("emailid")).sendKeys("test@mail.com");
+
+        } finally {
+            driver.quit();
+        }
+    }
+}
