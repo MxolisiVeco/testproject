@@ -9,22 +9,21 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import tests.BaseTest;
 
 /**
  *
  * @author Veco Mxolisi
  */
-public class MercurytoursTest {
+public class MercurytoursTest extends BaseTest {
 
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     @Test
     public void hello() {
-
         WebDriver driver = null;
-
         try {
-            driver = new ChromeDriver();
+            driver = new ChromeDriver(chromeOptions);
             driver.get("https://demo.guru99.com/");
             driver.manage().window().maximize();
             driver.findElement(By.name("emailid")).sendKeys("test@mail.com");
@@ -33,7 +32,7 @@ public class MercurytoursTest {
             driver.quit();
         }
     }
-    
+
     @Test
     public void failureTest() {
         Assert.assertEquals("Hello", "Hello", "testing greetings message");
