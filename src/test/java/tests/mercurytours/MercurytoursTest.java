@@ -23,9 +23,8 @@ public class MercurytoursTest extends BaseTest {
     public void hello() {
         WebDriver driver = null;
         try {
-            driver = new ChromeDriver(chromeOptions);
+            driver = initialiseBrowser(Browser.CHROME);
             driver.get("https://demo.guru99.com/");
-            driver.manage().window().maximize();
             driver.findElement(By.name("emailid")).sendKeys("test@mail.com");
 
         } finally {

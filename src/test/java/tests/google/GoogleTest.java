@@ -28,9 +28,8 @@ public class GoogleTest extends BaseTest {
         WebDriver driver = null;
 
         try {
-            driver = new ChromeDriver(chromeOptions);
+            driver = initialiseBrowser(Browser.CHROME);
             driver.get("https://www.google.com/");
-            driver.manage().window().maximize();
             WebElement searchBox = driver.findElement(By.name("q"));
             searchBox.sendKeys("Hello World");
             searchBox.sendKeys(Keys.ENTER);
