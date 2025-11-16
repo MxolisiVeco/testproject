@@ -33,7 +33,7 @@ public class HomePage extends BasePage {
 
     @Override
     public void waitForPageToLoad(int seconds) {
-        wait(seconds, accountsMenu);
+        wait(seconds, popUpDismiss);
     }
 
 }

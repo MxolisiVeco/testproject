@@ -21,6 +21,7 @@ public class RegisterPage extends BasePage {
     private final By securityQuestionsDropDown = By.xpath("//mat-label[text()=' Security Question ']");
     private final By securityQuestionsAnswerInput = By.id("securityAnswerControl");
     private final By registerBtn = By.xpath("//span[text()=' Register ']");
+    private final By registrationMessage = By.xpath("//div[@matsnackbarlabel='']");
 
     public RegisterPage(WebDriver driver) {
         super(driver);
@@ -33,19 +34,24 @@ public class RegisterPage extends BasePage {
 
     public void selectSecurityQuestion(String securityQuestion) {
         click(securityQuestionsDropDown);
-        driver.findElement(securityQuestionsDropDown).click();
         By by = By.xpath("//*[text()=' " + securityQuestion + " ']");
         wait(2, by).click();
 //        driver.findElement(by).click();
     }
 
-    public void captureForm(String email, String password, String repeatPassword, String securityQuestion, String securityAnswer) {
+    public String captureForm(String email, String password, String repeatPassword, String securityQuestion, String securityAnswer) {
         sendKeys(emailInput, email);
         sendKeys(passwordInput, password);
         sendKeys(repeatPasswordInput, repeatPassword);
         selectSecurityQuestion(securityQuestion);
         sendKeys(securityQuestionsAnswerInput, securityAnswer);
         click(registerBtn);
+        return getRegistrationMessage();
     }
+
+    public String getRegistrationMessage() {
+       return driver.findElement(registrationMessage).getText().trim();
+    }
+
 
 }
